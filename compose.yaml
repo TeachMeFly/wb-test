@@ -16,6 +16,8 @@ services:
 
     image: postgres:16.1-alpine
 
+    env_file: "./.env"
+
     environment:
       - PGPORT=${POSTGRES_PORT}
       - POSTGRES_DB=${POSTGRES_DB}
@@ -52,6 +54,8 @@ services:
       context: .
       dockerfile: Dockerfile
 
+    env_file: "./.env"
+
     environment:
       POSTGRES_HOST: postgres
       POSTGRES_PORT: ${POSTGRES_PORT}
@@ -60,6 +64,13 @@ services:
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
       PORT: ${APP_PORT}
       NODE_ENV: production
+      WB_HEADER_API_KEY: ${WB_HEADER_API_KEY}
+      GOOGLE_CLIENT_ID: ${GOOGLE_CLIENT_ID}
+      GOOGLE_CLIENT_SECRET: ${GOOGLE_CLIENT_SECRET}
+      GOOGLE_REDIRECT_URL: ${GOOGLE_REDIRECT_URL}
+      UPDATE_DB_MASK: ${UPDATE_DB_MASK}
+      UPDATE_TABLES_MASK: ${UPDATE_TABLES_MASK}
+      SHEETS: ${SHEETS}
 
     ports:
       - ${APP_PORT}:${APP_PORT}

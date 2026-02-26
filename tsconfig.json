@@ -2,7 +2,7 @@
     "compilerOptions": {
         "strict": true,
         "module": "NodeNext",
-        "target": "es2017",
+        "target": "ESNext",
         "esModuleInterop": true,
         "allowJs": true,
         "checkJs": true,
